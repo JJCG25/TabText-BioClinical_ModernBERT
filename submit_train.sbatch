@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=tabtext_train
-#SBATCH --account=molthesis
+#SBATCH --account=mol_thesis
 #SBATCH --partition=cpu-cvail01
 #SBATCH --comment=notify           # Notificaciones por Discord DM
 #SBATCH --time=3:00:00

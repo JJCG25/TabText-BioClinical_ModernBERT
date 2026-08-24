@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=tabtext_embeddings
-#SBATCH --account=molthesis
+#SBATCH --account=mol_thesis
 #SBATCH --partition=gpu-cvail01
 #SBATCH --gres=gpu:1
 #SBATCH --comment=notify           # Notificaciones por Discord DM
