@@ -3,7 +3,9 @@
 #SBATCH --account=molthesis
 #SBATCH --partition=cpu-cvail01
 #SBATCH --comment=notify           # Notificaciones por Discord DM
-#SBATCH --time=12:00:00
+#SBATCH --time=3:00:00
+#SBATCH --cpus-per-task=4              # CPU cores per task
+#SBATCH --mem=8G 
 #SBATCH --output=logs/%x_%j.out
 #SBATCH --error=logs/%x_%j.err
 
