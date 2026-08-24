@@ -2,6 +2,10 @@ outputs_mice/
 experiments/
 logs/
 
+*.xlsx
+*.xls
+*.csv
+
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
