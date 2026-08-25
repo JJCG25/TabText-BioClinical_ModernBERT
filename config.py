@@ -4,7 +4,7 @@ from pathlib import Path
 
 PROJECT_DIR = Path(__file__).resolve().parent
 
-DATA_PATH = Path("/home/crisr_cvail/CCC-ML-Project/data/mice.xlsx")
+DATA_PATH = Path("/home/juanjo/chagas/TabText-BioClinical_ModernBERT/data/dataset_imputado_MICE_Multiple_completo.xlsx")
 SHEET_NAME = 0
 
 TARGET_COL = "Desenlace combinado"
