@@ -4,9 +4,9 @@
 #SBATCH --partition=gpu-cvail01
 #SBATCH --gres=gpu:1
 #SBATCH --comment=notify           # Notificaciones por Discord DM
-#SBATCH --time=00:30:00
+#SBATCH --time=00:10:00
 #SBATCH --cpus-per-task=4              # CPU cores per task
-#SBATCH --mem=8G 
+#SBATCH --mem=4G
 #SBATCH --output=logs/%x_%j.out
 #SBATCH --error=logs/%x_%j.err
 
