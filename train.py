@@ -891,7 +891,7 @@ def main():
 
     exp_dir = (
         EXPERIMENTS_DIR
-        / f"manual_models_tabular_plus_bioclinical_modernbert_base_{SPLIT_STRATEGY}_f1_{timestamp}"
+        / f"{OUTPUT_DIR.name}_manual_models_tabular_plus_bioclinical_modernbert_base_{SPLIT_STRATEGY}_f1_{timestamp}"
     )
     exp_dir.mkdir(parents=True, exist_ok=True)
 

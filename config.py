@@ -4,12 +4,12 @@ from pathlib import Path
 
 PROJECT_DIR = Path(__file__).resolve().parent
 
-DATA_PATH = Path("/home/juanjo/chagas/TabText-BioClinical_ModernBERT/data/dataset_imputado_MICE_Multiple_completo.xlsx")
+DATA_PATH = Path("/home/juanjo/chagas/TabText-BioClinical_ModernBERT/data/mice_threshold.xlsx")
 SHEET_NAME = 0
 
 TARGET_COL = "Desenlace combinado"
 
-OUTPUT_DIR = PROJECT_DIR / "outputs_mice"
+OUTPUT_DIR = PROJECT_DIR / "outputs_mice_threshold"
 OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
 
 TEXT_DIR = OUTPUT_DIR / "texts"
