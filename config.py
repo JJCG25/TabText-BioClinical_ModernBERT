@@ -1,15 +1,18 @@
 # config.py
 
+import os
 from pathlib import Path
 
 PROJECT_DIR = Path(__file__).resolve().parent
 
-DATA_PATH = PROJECT_DIR / "data" / "mice_threshold.xlsx"
+N_JOBS = int(os.environ.get("TABTEXT_N_JOBS", 4))
+
+DATA_PATH = PROJECT_DIR / "data" / "Data_Imputed_Log.xlsx"
 SHEET_NAME = 0
 
 TARGET_COL = "Desenlace combinado"
 
-OUTPUT_DIR = PROJECT_DIR / "outputs_mice_threshold"
+OUTPUT_DIR = PROJECT_DIR / "outputs_data_imputed_log"
 OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
 
 TEXT_DIR = OUTPUT_DIR / "texts"

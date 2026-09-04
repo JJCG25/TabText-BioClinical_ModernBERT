@@ -49,6 +49,7 @@ from config import (
     VALID_TRAIN_SIZE,
     VALID_SIZE,
     VALID_TEST_SIZE,
+    N_JOBS,
 )
 
 warnings.filterwarnings("ignore")
@@ -316,7 +317,7 @@ def build_model(model_name, trial, y_train):
             reg_lambda=trial.suggest_float("reg_lambda", 1e-8, 50.0, log=True),
             class_weight="balanced",
             random_state=RANDOM_STATE,
-            n_jobs=-1,
+            n_jobs=N_JOBS,
             verbose=-1,
         )
 
@@ -340,7 +341,7 @@ def build_model(model_name, trial, y_train):
             objective="binary:logistic",
             eval_metric="logloss",
             random_state=RANDOM_STATE,
-            n_jobs=-1,
+            n_jobs=N_JOBS,
             tree_method="hist",
         )
 
@@ -356,6 +357,7 @@ def build_model(model_name, trial, y_train):
             random_seed=RANDOM_STATE,
             verbose=False,
             allow_writing_files=False,
+            thread_count=N_JOBS,
         )
 
     if model_name == "gradient_boosting":
@@ -378,7 +380,7 @@ def build_model(model_name, trial, y_train):
             max_features=trial.suggest_categorical("max_features", ["sqrt", "log2", None]),
             class_weight="balanced",
             random_state=RANDOM_STATE,
-            n_jobs=-1,
+            n_jobs=N_JOBS,
         )
 
     if model_name == "bagging_dt":
@@ -404,7 +406,7 @@ def build_model(model_name, trial, y_train):
                 max_samples=max_samples,
                 max_features=max_features,
                 random_state=RANDOM_STATE,
-                n_jobs=-1,
+                n_jobs=N_JOBS,
             )
         except TypeError:
             return BaggingClassifier(
@@ -413,7 +415,7 @@ def build_model(model_name, trial, y_train):
                 max_samples=max_samples,
                 max_features=max_features,
                 random_state=RANDOM_STATE,
-                n_jobs=-1,
+                n_jobs=N_JOBS,
             )
 
     if model_name == "svm_rbf":
@@ -470,7 +472,7 @@ def build_model(model_name, trial, y_train):
             weights=trial.suggest_categorical("weights", ["uniform", "distance"]),
             p=trial.suggest_int("p", 1, 2),
             leaf_size=trial.suggest_int("leaf_size", 10, 60),
-            n_jobs=-1,
+            n_jobs=N_JOBS,
         )
 
     if model_name == "gaussian_nb":

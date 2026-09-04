@@ -178,7 +178,7 @@ def main():
                 model_name_key=model_name_key,
                 hf_model_name=hf_model_name,
                 split_name=split_name,
-                device=device,
+                device=device
             )
 
     print("\nExtracción de embeddings terminada.")
