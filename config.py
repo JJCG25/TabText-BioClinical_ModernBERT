@@ -10,7 +10,7 @@ N_JOBS = int(os.environ.get("TABTEXT_N_JOBS", 4))
 DATA_PATH = PROJECT_DIR / "data" / "Data_Imputed_Log.xlsx"
 SHEET_NAME = 0
 
-TARGET_COL = "Desenlace combinado"
+TARGET_COL = "desenlace_combinado"
 
 OUTPUT_DIR = PROJECT_DIR / "outputs_data_imputed_log"
 OUTPUT_DIR.mkdir(exist_ok=True, parents=True)
