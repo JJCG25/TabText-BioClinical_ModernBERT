@@ -8,17 +8,25 @@ PYTHON_BIN="${PYTHON_BIN:-python3}"
 
 # Limite de cores de CPU a usar (n_jobs de sklearn/xgboost/lightgbm/catboost
 # y tambien BLAS/OpenMP a bajo nivel). Ajusta con: TABTEXT_N_JOBS=8 ./run_pipeline.sh
+# Usa TABTEXT_N_JOBS=-1 para no limitar nada (usa todos los cores disponibles).
 export TABTEXT_N_JOBS="${TABTEXT_N_JOBS:-4}"
-export OMP_NUM_THREADS="$TABTEXT_N_JOBS"
-export MKL_NUM_THREADS="$TABTEXT_N_JOBS"
-export OPENBLAS_NUM_THREADS="$TABTEXT_N_JOBS"
-export NUMEXPR_NUM_THREADS="$TABTEXT_N_JOBS"
+
+if [ "$TABTEXT_N_JOBS" != "-1" ]; then
+  export OMP_NUM_THREADS="$TABTEXT_N_JOBS"
+  export MKL_NUM_THREADS="$TABTEXT_N_JOBS"
+  export OPENBLAS_NUM_THREADS="$TABTEXT_N_JOBS"
+  export NUMEXPR_NUM_THREADS="$TABTEXT_N_JOBS"
+fi
 
 echo "============================================================"
 echo "TabText pipeline"
 echo "Directorio: $SCRIPT_DIR"
 echo "Python: $PYTHON_BIN"
-echo "Cores de CPU limitados a: $TABTEXT_N_JOBS"
+if [ "$TABTEXT_N_JOBS" = "-1" ]; then
+  echo "Cores de CPU: sin limite (usando todos los disponibles)"
+else
+  echo "Cores de CPU limitados a: $TABTEXT_N_JOBS"
+fi
 echo "============================================================"
 
 echo
